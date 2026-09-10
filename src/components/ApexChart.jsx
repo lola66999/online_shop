@@ -428,10 +428,10 @@ const ApexChart = () => {
     <div>
       <div id="chart">
         <div className="toolbar">
-          <button
+          <button 
             id="one_month"
             onClick={() => updateData("one_month")}
-            className={state.selection === "one_month" ? "active" : ""}
+            className={state.selection === "one_month" ? "active" : "chartbutton"}
           >
             1M
           </button>
@@ -439,7 +439,7 @@ const ApexChart = () => {
           <button
             id="six_months"
             onClick={() => updateData("six_months")}
-            className={state.selection === "six_months" ? "active" : ""}
+            className={state.selection === "six_months" ? "active" : "chartbutton"}
           >
             6M
           </button>
@@ -447,7 +447,7 @@ const ApexChart = () => {
           <button
             id="one_year"
             onClick={() => updateData("one_year")}
-            className={state.selection === "one_year" ? "active" : ""}
+            className={state.selection === "one_year" ? "active" : "chartbutton"}
           >
             1Y
           </button>
@@ -455,7 +455,7 @@ const ApexChart = () => {
           <button
             id="ytd"
             onClick={() => updateData("ytd")}
-            className={state.selection === "ytd" ? "active" : ""}
+            className={state.selection === "ytd" ? "active" : "chartbutton"}
           >
             YTD
           </button>
@@ -463,7 +463,7 @@ const ApexChart = () => {
           <button
             id="all"
             onClick={() => updateData("all")}
-            className={state.selection === "all" ? "active" : ""}
+            className={state.selection === "all" ? "active" : "chartbutton"}
           >
             ALL
           </button>
