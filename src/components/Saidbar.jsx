@@ -29,22 +29,50 @@ export default function Saidbar() {
           Main menu
         </p>
         <div className="px-3 py-6">
-          <Link to="/dashboard" className=" text-neutral-500 mt-6 flex gap-2">
-            <LayoutDashboard size={24} className="" />
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              `mt-6 flex gap-2 items-center px-3 py-2 rounded-lg transition-colors duration-200 ${
+                isActive ? "bg-green-500 text-white" : "text-neutral-500"
+              }`
+            }
+          >
+            <LayoutDashboard size={24} />
             <span>Dashboard</span>
-          </Link>
-          <section className=" text-neutral-500 mt-6 flex gap-2">
-            <ShoppingBag size={24} className="" />
-            <span>Categories</span>
-          </section>
-          <section className=" text-neutral-500 mt-6 flex gap-2">
-            <Users size={24} className="" />
-            <span>Customer</span>
-          </section>
-          <section className=" text-neutral-500 mt-6 flex gap-2">
+          </NavLink>
+          <NavLink
+            to="/ordermanagment"
+            className={({ isActive }) =>
+              `mt-6 flex gap-2 items-center px-3 py-2 rounded-lg transition-colors duration-200 ${
+                isActive ? "bg-green-500 text-white" : "text-neutral-500"
+              }`
+            }
+          >
             <Package size={24} className="" />
             <span>Ordermanagment</span>
-          </section>
+          </NavLink>
+          <NavLink
+            to="/categories"
+            className={({ isActive }) =>
+              `mt-6 flex gap-2 items-center px-3 py-2 rounded-lg transition-colors duration-200 ${
+                isActive ? "bg-green-500 text-white" : "text-neutral-500"
+              }`
+            }
+          >
+            <ShoppingBag size={24} className="" />
+            <span>Categories</span>
+          </NavLink>
+          <NavLink
+            to="/customer"
+            className={({ isActive }) =>
+              `mt-6 flex gap-2 items-center px-3 py-2 rounded-lg transition-colors duration-200 ${
+                isActive ? "bg-green-500 text-white" : "text-neutral-500"
+              }`
+            }
+          >
+            <Users size={24} className="" />
+            <span>Customer</span>
+          </NavLink>
         </div>
 
         <div className="mt-auto">
