@@ -7,7 +7,7 @@ import avatar from "../assets/png/avatar (2).png";
 import saidbarLogo from "../assets/logo/saidbar.png";
 import save from "../assets/svg/sefe.svg";
 import save2 from "../assets/svg/save2.svg";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import {
   LayoutDashboard,
@@ -63,7 +63,7 @@ export default function Saidbar() {
             <span>Categories</span>
           </NavLink>
           <NavLink
-            to="/customer"
+            to="/customers"
             className={({ isActive }) =>
               `mt-6 flex gap-2 items-center px-3 py-2 rounded-lg transition-colors duration-200 ${
                 isActive ? "bg-green-500 text-white" : "text-neutral-500"
@@ -94,7 +94,7 @@ export default function Saidbar() {
             <div className="flex gap-2 ml-0 items-center">
               <Store size={24} className="text-[#023337]" />
               <b className="font-inter font-semibold text-sm leading-4 tracking-normal text-[#023337]">
-                Your Shop
+                <button onClick={() => LoginPage()}>your shop</button>
               </b>
             </div>
             <img src={save2} alt="" size={18} />
