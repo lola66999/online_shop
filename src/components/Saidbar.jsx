@@ -15,7 +15,9 @@ import {
   Users,
   Package,
   Store,
+  Tags,
 } from "lucide-react";
+import Brand from "../pages/Brand";
 
 export default function Saidbar() {
   return (
@@ -73,6 +75,17 @@ export default function Saidbar() {
             <Users size={24} className="" />
             <span>Customer</span>
           </NavLink>
+             <NavLink
+            to="/brands"
+            className={({ isActive }) =>
+              `mt-6 flex gap-2 items-center px-3 py-2 rounded-lg transition-colors duration-200 ${
+                isActive ? "bg-green-500 text-white" : "text-neutral-500"
+              }`
+            }
+          >
+            <Tags size={24} className="" />
+            <span>Brand</span>
+          </NavLink>
         </div>
 
         <div className="mt-auto">
@@ -94,7 +107,7 @@ export default function Saidbar() {
             <div className="flex gap-2 ml-0 items-center">
               <Store size={24} className="text-[#023337]" />
               <b className="font-inter font-semibold text-sm leading-4 tracking-normal text-[#023337]">
-                <button onClick={() => LoginPage()}>your shop</button>
+                {/* <button onClick={() => LoginPage()}>your shop</button> */}
               </b>
             </div>
             <img src={save2} alt="" size={18} />

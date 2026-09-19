@@ -1,23 +1,31 @@
 import { useMutation } from "@tanstack/react-query";
-import api from "../../src/services/api.js";
-import { useNavigate } from "react-router-dom";
 import { message } from "antd";
-const useLogin = () => {
+import { useNavigate } from "react-router-dom";
+import api from "../services/api";
+
+export default function useLogin() {
   const navigate = useNavigate();
-  const { isPending, mutate } = useMutation({
-    mutationKey: ["login"],
-    mutationFn: (data) =>
-      api.post("/admin/auth/login", data).then((res) => res.data),
-    onSuccess: (data) => {
-      localStorage.setItem("crmAccessToken", data?.data?.accessToken);
-      localStorage.setItem("crmRefreshToken", data?.data?.refreshToken);
-      message.success("Success");
-      navigate("/dashboard");
+
+  return useMutation({
+    mutationFn: (values) => api.post("/admin/auth/login", values), 
+    onSuccess: (res) => {
+      console.log("login javobi:", res.data); 
+      const d = res.data?.data ?? res.data;
+      const token = d?.accessToken ?? d?.access_token ?? d?.token;
+
+      if (!token) {
+        message.error("Token topilmadi, konsoldagi javobni tekshiring");
+        return;
+      }
+
+      localStorage.setItem("accessToken", token);
+      if (d?.refreshToken) localStorage.setItem("refreshToken", d.refreshToken);
+
+      message.success("Xush kelibsiz!");
+      navigate("/dashboard", { replace: true });
     },
-    onError: (error) => {
-      message.error(`Error`);
+    onError: (e) => {
+      message.error(e?.response?.data?.message || "Email yoki parol xato");
     },
   });
-  return { isPending, mutate };
-};
-export default useLogin
+}

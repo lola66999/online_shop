@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import api from "../services/api.js";
+import api from "../services/api";
+
 const useMe = () => {
-  const { data, isloading } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["me"],
     queryFn: () => api.get("/admin/auth/me").then((res) => res?.data),
   });
-  return { data, isloading };
+  return { data, isLoading };
 };
 export default useMe;
